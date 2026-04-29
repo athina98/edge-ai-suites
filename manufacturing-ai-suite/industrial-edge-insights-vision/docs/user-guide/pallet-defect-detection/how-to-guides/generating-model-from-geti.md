@@ -94,25 +94,21 @@ Click on "Annotate Interactively" on the top right side of the dashboard. Begin 
 
 ![Annotate Images](../_assets/annotate.png)
 
-### Step 11: Auto-Training Begins
+After annotating a few frames, Geti will automatically start training the model.
 
-After annotating a few frames, Geti will automatically start training the model:
-
-![Auto Training in Progress](../_assets/auto_training.png)
-
-### Step 12: Monitor Training Progress
+### Step 11: Monitor Training Progress
 
 You can monitor the model training progress in real-time:
 
 ![Model Training](../_assets/model_training.png)
 
-### Step 13: Improve Model Accuracy (Optional)
+### Step 12: Improve Model Accuracy (Optional)
 
 Repeat the annotation process to improve model accuracy. More annotated data will lead to better model performance.
 
 ## Advanced Model Training
 
-### Step 14: Train with Specific Model Type
+### Step 13: Train with Specific Model Type
 
 For advanced training options:
 
@@ -124,7 +120,7 @@ For advanced training options:
 
 ![Advanced Model Training](../_assets/train_model.png)
 
-### Step 15: Monitor YOLOX-Tiny Training
+### Step 14: Monitor YOLOX-Tiny Training
 
 Watch the YOLOX-Tiny model being trained:
 
@@ -132,7 +128,7 @@ Watch the YOLOX-Tiny model being trained:
 
 ## Model Optimization and Deployment
 
-### Step 16: Select Model Optimization
+### Step 15: Select Model Optimization
 
 After training completes, you can optimize the model for your requirements:
 
@@ -143,7 +139,7 @@ Click on **Start Optimization** to generate your optimized model:
 
 ![Select Trained Model and Optimization](../_assets/trained_model.png)
 
-### Step 17: Download Model
+### Step 16: Download Model
 
 Click on the download icon next to the FP16 or INT8 model. A zip folder containing `model.bin` and `model.xml` will be downloaded. Replace the existing model files in your deployment resources:
 
@@ -152,19 +148,19 @@ model.bin  <- Replace with downloaded version
 model.xml  <- Replace with downloaded version
 ```
 
-### Step 18: Prepare for Deployment
+### Step 17: Prepare for Deployment
 
 Alternatively, you can download the entire deployment folder and replace the existing deployment folder in your resources:
 
 ![Deployment Dashboard](../_assets/deployment_dashboard.png)
 
-### Step 19: Select Model for Deployment
+### Step 18: Select Model for Deployment
 
 Navigate to **Deployments** and click **Select model for deployment**:
 
 ![Select Deployment Package](../_assets/select_deployment.png)
 
-### Step 20: Download Deployment Package
+### Step 19: Download Deployment Package
 
 In the "Select model for deployment" dialog:
 
