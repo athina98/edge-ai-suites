@@ -10,39 +10,19 @@ This guide walks you through the process of installing Geti, setting up a pallet
 
 ## Installation Steps
 
-### Step 1: Install Geti Platform
+For detailed Geti platform installation instructions, refer to the [Geti Installer Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer).
 
-Download the Geti platform installer:
-
-```bash
-curl -LO https://storage.geti.intel.com/$(curl -L -s https://storage.geti.intel.com/latest.txt)/platform_installer.tar.gz
-```
-
-Extract the installer:
-
-```bash
-tar -xf platform_installer.tar.gz
-```
-
-### Step 2: Prepare System
-
-Clean and prepare the data directory:
-
-```bash
-sudo rm -rf /data
-sudo mkdir /data
-```
-
-### Step 3: Run Platform Installer
-
-Navigate to the installer directory and run the installation:
-
-```bash
-cd platform_2.13.1/
-sudo ./platform_installer install
-```
-
-![Geti Installation](../_assets/installation_geti.png)
+> **Note:** The standard Geti platform installation includes the following steps:
+> 1. Download the Geti platform installer
+> 2. Extract the installer archive
+> 3. Prepare the system by creating necessary directories
+> 4. Run the platform installer with appropriate system privileges
+>
+> Please follow the official installation guide for the most up-to-date and accurate installation procedures.
+>
+> Upon successful completion, you will see the installation success confirmation as shown below:
+>
+> ![Geti Installation](../_assets/installation_geti.png)
 
 ## Setting Up Your Project
 
@@ -78,6 +58,8 @@ Define the labels for your defect detection task (e.g., "defect", "box", "shippi
 
 ## Data Annotation and Training
 
+For comprehensive tutorials on data annotation and training workflows, refer to the [Geti Tutorials Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/use-geti/tutorials).
+
 ### Step 9: Upload Training Images
 
 Browse and upload your training dataset images:
@@ -96,6 +78,11 @@ Click on "Annotate Interactively" on the top right side of the dashboard. Begin 
 
 After annotating a few frames, Geti will automatically start training the model.
 
+> **Note:** By default, Geti uses **MobileNetV2-ATSS** as the model backbone for your detection task. For more control over your model training, you can explore the [Advanced Guide](#advanced-guide) section below to:
+> - Change model backbone to different architectures
+> - Configure custom training parameters
+> - Apply model optimization techniques (FP16, INT8)
+
 ### Step 11: Monitor Training Progress
 
 You can monitor the model training progress in real-time:
@@ -106,40 +93,58 @@ You can monitor the model training progress in real-time:
 
 Repeat the annotation process to improve model accuracy. More annotated data will lead to better model performance.
 
-## Advanced Model Training
 
-### Step 13: Train with Specific Model Type
+## Advanced Guide
 
-For advanced training options:
+The Advanced Guide section allows you to fine-tune your model training with more control over model architecture, parameters, and optimization.
+
+### Model Backbone Change
+
+Change the model backbone from the default architecture to other architectures for your specific requirements. For a complete list of supported model architectures, refer to [Supported Models Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/use-geti/supported-models).
 
 1. Click on **Models** from the left sidebar
 2. Select **Train Model**
 3. Click on **Advanced Settings**
-4. Select your desired model type (e.g., **YOLOX-Tiny**)
-5. Click **Start** to begin training
+4. Select your desired model type from the available options:
+   - **YOLOX-Tiny**: Lightweight model for edge devices
+   - **YOLOX-Small**: Small model with better accuracy
+   - Other available backbone architectures
+5. Click **Start** to begin training with your selected backbone
 
 ![Advanced Model Training](../_assets/train_model.png)
 
-### Step 14: Monitor YOLOX-Tiny Training
-
-Watch the YOLOX-Tiny model being trained:
+Monitor your selected backbone training progress:
 
 ![YOLOX-Tiny Model Training](../_assets/yolox_tiny_model.png)
 
-## Model Optimization and Deployment
+### Train Parameters
 
-### Step 15: Select Model Optimization
+Configure custom training parameters to optimize model performance based on your dataset and requirements. For detailed information on available training parameters and their configurations, refer to [Training Parameters Documentation](https://docs.geti.intel.com/docs/user-guide/model-training/training-parameters).
 
-After training completes, you can optimize the model for your requirements:
+Common parameters include:
+- Learning rate
+- Batch size
+- Number of epochs
+- Optimizer settings
+- Augmentation options
 
-- **FP16**: Higher precision, requires more resources
-- **INT8**: Optimized for edge deployment, reduces model size and latency
+![Training Parameters](../_assets/training.png)
+
+### Model Optimization
+
+After training completes, optimize your model for different deployment scenarios using quantization techniques. Choose the optimization level that best suits your deployment environment:
+
+- **FP16**: Higher precision with good accuracy, requires more computational resources
+- **INT8**: Optimized for edge deployment, significantly reduces model size and latency
 
 Click on **Start Optimization** to generate your optimized model:
 
 ![Select Trained Model and Optimization](../_assets/trained_model.png)
 
-### Step 16: Download Model
+
+After optimization, proceed with downloading and deploying your model.
+
+#### Download Model
 
 Click on the download icon next to the FP16 or INT8 model. A zip folder containing `model.bin` and `model.xml` will be downloaded. Replace the existing model files in your deployment resources:
 
@@ -148,19 +153,15 @@ model.bin  <- Replace with downloaded version
 model.xml  <- Replace with downloaded version
 ```
 
-### Step 17: Prepare for Deployment
 
 Alternatively, you can download the entire deployment folder and replace the existing deployment folder in your resources:
 
 ![Deployment Dashboard](../_assets/deployment_dashboard.png)
 
-### Step 18: Select Model for Deployment
 
 Navigate to **Deployments** and click **Select model for deployment**:
 
 ![Select Deployment Package](../_assets/select_deployment.png)
-
-### Step 19: Download Deployment Package
 
 In the "Select model for deployment" dialog:
 
