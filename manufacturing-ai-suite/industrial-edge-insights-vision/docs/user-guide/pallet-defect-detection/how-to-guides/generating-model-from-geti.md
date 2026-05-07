@@ -7,7 +7,7 @@ This guide walks you through the process of installing Geti, setting up a pallet
 - A system capable of running Geti Platform
 - Internet connection for downloading Geti and datasets
 - Access to images for training your defect detection model
-
+- [Minimum Requirements for Geti Installation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer#minimum-requirements).
 ## Installation Steps
 
 For detailed Geti platform installation instructions, refer to the [Geti Installer Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer).
@@ -28,7 +28,7 @@ For detailed Geti platform installation instructions, refer to the [Geti Install
 
 ### Step 4: Sign In to Geti
 
-Open `https://<host_ip>` in your browser, where `<host_ip>` is the IP address of the system where you installed Geti server. Sign in with your credentials:
+Open `https://<host_ip>` in your browser, where `<host_ip>` is the IP address of the system where you installed Geti server. Sign in with credential which was set during installation:
 
 ![Sign In to Geti](../_assets/sign_in_geti.png)
 
@@ -43,6 +43,8 @@ After successful authentication, you'll see the Geti dashboard:
 Click on "Create New Project" to start a new pallet defect detection project:
 
 ![Create New Project](../_assets/create_new_project.png)
+
+For detailed information refer to the video tutorial from geti: [Geti™ - Anyone can build AI solutions](https://www.youtube.com/playlist?list=PLg-UKERBljNy-3VOK6tzYe69KbXZv1z5a)
 
 ### Step 7: Select Detection Task
 
