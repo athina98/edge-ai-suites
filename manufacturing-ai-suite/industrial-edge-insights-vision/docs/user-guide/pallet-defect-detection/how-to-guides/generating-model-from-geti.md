@@ -5,7 +5,6 @@ This guide walks you through the process of installing Geti™, setting up a pal
 ## Prerequisites
 
 - [Minimum Requirements for Geti™ Installation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer#minimum-requirements).
-- A system capable of running Geti™ Platform
 - Internet connection for downloading Geti™ and datasets
 - Access to images for training your defect detection model
 
