@@ -19,7 +19,7 @@ This section collects guides for Pallet Defect Detection sample application.
 - [Benchmarks](./how-to-guides/benchmark.md)
 - [View Open Telemetry data](./how-to-guides/view-telemetry-data.md)
 - [Launching Multiple Instances of Apps](./how-to-guides/run-multiple-apps.md)
-- [Generating Model from Geti](./how-to-guides/generating-model-from-geti.md)
+- [Generating Model from Geti™](./how-to-guides/generating-model-from-geti.md)
 
 <!--hide_directive
 :::{toctree}

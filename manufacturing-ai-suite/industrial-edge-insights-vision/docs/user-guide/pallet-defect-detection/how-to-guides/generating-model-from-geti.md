@@ -1,19 +1,20 @@
-# Generating Model from Geti
+# Generating Model from Geti™
 
-This guide walks you through the process of installing Geti, setting up a pallet defect detection project, training a model, and deploying it.
+This guide walks you through the process of installing Geti™, setting up a pallet defect detection project, training a model, and deploying it.
 
 ## Prerequisites
 
-- A system capable of running Geti Platform
-- Internet connection for downloading Geti and datasets
+- [Minimum Requirements for Geti™ Installation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer#minimum-requirements).
+- A system capable of running Geti™ Platform
+- Internet connection for downloading Geti™ and datasets
 - Access to images for training your defect detection model
-- [Minimum Requirements for Geti Installation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer#minimum-requirements).
+
 ## Installation Steps
 
-For detailed Geti platform installation instructions, refer to the [Geti Installer Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer).
+For detailed Geti™ platform installation instructions, refer to the [Geti™ Installer Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer).
 
-> **Note:** The standard Geti platform installation includes the following steps:
-> 1. Download the Geti platform installer
+> **Note:** The standard Geti™ platform installation includes the following steps:
+> 1. Download the Geti™ platform installer
 > 2. Extract the installer archive
 > 3. Prepare the system by creating necessary directories
 > 4. Run the platform installer with appropriate system privileges
@@ -22,21 +23,21 @@ For detailed Geti platform installation instructions, refer to the [Geti Install
 >
 > Upon successful completion, you will see the installation success confirmation as shown below:
 >
-> ![Geti Installation](../_assets/installation_geti.png)
+> ![Geti™ Installation](../_assets/installation_geti.png)
 
 ## Setting Up Your Project
 
-### Step 4: Sign In to Geti
+### Step 4: Sign In to Geti™
 
-Open `https://<host_ip>` in your browser, where `<host_ip>` is the IP address of the system where you installed Geti server. Sign in with credential which was set during installation:
+Open `https://<host_ip>` in your browser, where `<host_ip>` is the IP address of the system where you installed Geti™ server. Sign in with credential which was set during installation:
 
-![Sign In to Geti](../_assets/sign_in_geti.png)
+![Sign In to Geti™](../_assets/sign_in_geti.png)
 
-### Step 5: Access Geti Dashboard
+### Step 5: Access Geti™ Dashboard
 
-After successful authentication, you'll see the Geti dashboard:
+After successful authentication, you'll see the Geti™ dashboard:
 
-![Geti Dashboard](../_assets/geti_dashboard.png)
+![Geti™ Dashboard](../_assets/geti_dashboard.png)
 
 ### Step 6: Create a New Project
 
@@ -44,7 +45,7 @@ Click on "Create New Project" to start a new pallet defect detection project:
 
 ![Create New Project](../_assets/create_new_project.png)
 
-For detailed information refer to the video tutorial from geti: [Geti™ - Anyone can build AI solutions](https://www.youtube.com/playlist?list=PLg-UKERBljNy-3VOK6tzYe69KbXZv1z5a)
+For detailed information refer the tutorial: [Geti™ - Project Creation](https://docs.geti.intel.com/docs/user-guide/geti-fundamentals/project-management/#project-creation)
 
 ### Step 7: Select Detection Task
 
@@ -58,9 +59,11 @@ Define the labels for your defect detection task (e.g., "defect", "box", "shippi
 
 ![Create Labels](../_assets/create_labels.png)
 
+For detailed information refer the tutorial: [Geti™ - Label Management](https://docs.geti.intel.com/docs/user-guide/geti-fundamentals/labels/labels-management)
+
 ## Data Annotation and Training
 
-For comprehensive tutorials on data annotation and training workflows, refer to the [Geti Tutorials Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/use-geti/tutorials).
+For comprehensive tutorials on data annotation and training workflows, refer to the [Geti™ Tutorials Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/use-geti/tutorials).
 
 ### Step 9: Upload Training Images
 
@@ -78,9 +81,9 @@ Click on "Annotate Interactively" on the top right side of the dashboard. Begin 
 
 ![Annotate Images](../_assets/annotate.png)
 
-After annotating a few frames, Geti will automatically start training the model.
+After annotating a few frames, Geti™ will automatically start training the model.
 
-> **Note:** By default, Geti uses **MobileNetV2-ATSS** as the model backbone for your detection task. For more control over your model training, you can explore the [Advanced Guide](#advanced-guide) section below to:
+> **Note:** By default, Geti™ uses **MobileNetV2-ATSS** as the model backbone for your detection task. For more control over your model training, you can explore the [Advanced Guide](#advanced-guide) section below to:
 > - Change model backbone to different architectures
 > - Configure custom training parameters
 > - Apply model optimization techniques (FP16, INT8)
@@ -102,7 +105,7 @@ The Advanced Guide section allows you to fine-tune your model training with more
 
 ### Model Backbone Change
 
-Change the model backbone from the default architecture to other architectures for your specific requirements. For a complete list of supported model architectures, refer to [Supported Models Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/use-geti/supported-models).
+Change the model backbone from the default architecture to other architectures for your specific requirements. For a complete list of supported model architectures, refer to [Geti™ - Supported Models Documentation](https://docs.geti.intel.com/docs/user-guide/getting-started/use-geti/supported-models).
 
 1. Click on **Models** from the left sidebar
 2. Select **Train Model**
@@ -113,6 +116,8 @@ Change the model backbone from the default architecture to other architectures f
    - Other available backbone architectures
 5. Click **Start** to begin training with your selected backbone
 
+
+For detailed information, refer the tutorial: [Geti™ - Model Training and Optimization](https://docs.geti.intel.com/docs/user-guide/geti-fundamentals/model-training-and-optimization/)
 ![Advanced Model Training](../_assets/train_model.png)
 
 Monitor your selected backbone training progress:
@@ -154,7 +159,7 @@ Click on the download icon next to the FP16 or INT8 model. A zip folder containi
 model.bin  <- Replace with downloaded version
 model.xml  <- Replace with downloaded version
 ```
-
+For detailed information, refer to the tutorial: [Geti™ - Model Download](https://docs.geti.intel.com/docs/user-guide/geti-fundamentals/deployments/)
 
 Alternatively, you can download the entire deployment folder and replace the existing deployment folder in your resources:
 
@@ -182,4 +187,4 @@ The deployment package will be downloaded. Replace the existing deployment folde
 
 ## Troubleshooting
 
-For installation issues, refer to the [Geti Installation Guide](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer).
+For installation issues, refer to the [Geti™ Installation Guide](https://docs.geti.intel.com/docs/user-guide/getting-started/installation/using-geti-installer).
