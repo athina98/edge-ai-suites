@@ -121,7 +121,7 @@ If the output says `No such element or plugin 'gencamsrc'`, see [Troubleshooting
 Required when any pipeline uses RTSP or WebRTC frame output.
 
 ```powershell
-python src/setup_mediamtx.py --dir <mediamtx_dir>
+python src/setup_mediamtx.py --dir <mediamtx_dir> --version v1.18.1
 $env:MEDIAMTX_PATH = "<mediamtx_dir>\mediamtx.exe"
 ```
 
