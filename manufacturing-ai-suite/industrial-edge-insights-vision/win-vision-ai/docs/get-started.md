@@ -25,6 +25,8 @@ $env:no_proxy    = "localhost,127.0.0.1"
 
 Download `dlstreamer-<version>-win64.exe` from the [Intel DL Streamer releases page](https://github.com/open-edge-platform/dlstreamer/releases) and follow the [Windows installation guide](https://github.com/open-edge-platform/dlstreamer/blob/main/docs/user-guide/get_started/install/install_guide_windows.md).
 
+DL Streamer installs by default to `C:\Program Files\Intel\dlstreamer`.
+
 ---
 
 ## Clone the Repository
