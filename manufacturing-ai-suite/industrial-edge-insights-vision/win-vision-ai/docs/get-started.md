@@ -90,7 +90,7 @@ $repoRoot = "<path-to-win-vision-ai-clone>"
 $genicamRuntime = "$repoRoot\bin\Win64_x64"
 
 # Add gstgencamsrc.dll plugin directory to GStreamer plugin search path
-$env:GST_PLUGIN_PATH = "C:\dlstreamer_dlls;$repoRoot\bin"
+$env:GST_PLUGIN_PATH = "C:\Program Files\Intel\dlstreamer\bin;$repoRoot\bin"
 
 # GenICam transport layer — set to your camera vendor's GenTL producer path, for example:
 #   Basler pylon:           C:\Program Files\Basler\pylon\Runtime\x64
