@@ -23,16 +23,7 @@ $env:no_proxy    = "localhost,127.0.0.1"
 
 ## Install Intel DL Streamer
 
-1. Download latest Dlstreamer zip for Windows from the Intel DL Streamer releases page (https://github.com/open-edge-platform/dlstreamer/releases/tag/v2026.0.0) and extract the dll files in C:\dlstreamer_dlls
-
-2. Open PowerShell **as Administrator** and run the setup script:
-
-```powershell
-cd C:\dlstreamer_dlls
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\setup_dls_env.ps1
-```
-This installs gstreamer folder inside Program Files folder.
+Download `dlstreamer-<version>-win64.exe` from the [Intel DL Streamer releases page](https://github.com/open-edge-platform/dlstreamer/releases) and follow the [Windows installation guide](https://github.com/open-edge-platform/dlstreamer/blob/main/docs/user-guide/get_started/install/install_guide_windows.md).
 
 ---
 
@@ -47,9 +38,9 @@ cd edge-ai-suites/manufacturing-ai-suite/industrial-edge-insights-vision/win-vis
 
 ```powershell
 python -m venv venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-pip install gstreamer-python
 ```
 
 ---
@@ -65,11 +56,8 @@ pip show gstreamer-python
 Note the `Location` field from the output (e.g., `C:\Users\<username>\AppData\Local\Programs\Python\Python312\Lib\site-packages`), then set `PYTHONPATH` using that path:
 
 ```powershell
-$env:GST_PLUGIN_PATH="C:\dlstreamer_dlls"
-$env:GSTREAMER_1_0_ROOT_MSVC_X86_64="C:\Program Files\gstreamer\1.0\msvc_x86_64"
 $env:PYTHONPATH="<gstreamer-python-location>\gstreamer_python\Lib\site-packages"
 $env:PYGI_DLL_DIRS="C:\Program Files\gstreamer\1.0\msvc_x86_64\bin"
-$env:PATH = "C:\Program Files\gstreamer\1.0\msvc_x86_64\bin;C:\dlstreamer_dlls;" + $env:PATH
 ```
 
 Verify GStreamer and DL Streamer plugins loaded correctly:
