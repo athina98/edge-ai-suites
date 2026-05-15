@@ -68,6 +68,44 @@ gst-inspect-1.0 gvadetect
 
 ### Camera Input (Optional)
 
+To use a GenICam-compatible camera (e.g., Basler, Balluff, HikRobot), download the GenICam runtime DLLs and set the required environment variables.
+
+The `gstgencamsrc.dll` plugin is pre-built and included in the `bin\` folder — no build step is required. If you prefer to build the plugin from source yourself, see the [src-gst-gencamsrc README (Windows)](https://github.com/open-edge-platform/edge-ai-libraries/blob/main/microservices/dlstreamer-pipeline-server/plugins/camera/src-gst-gencamsrc/README.md#windows).
+
+#### Download GenICam Runtime DLLs
+
+Run this once to download the EMVA GenICam v3.1 VC120 runtime DLLs into `bin\Win64_x64\`:
+
+```powershell
+.\src\setup_genicam_runtime.ps1
+```
+
+#### Set Camera Environment Variables
+
+```powershell
+# Path to your win-vision-ai clone root
+$repoRoot = "<path-to-win-vision-ai-clone>"
+
+# GenICam runtime DLLs (downloaded by setup_genicam_runtime.ps1 into bin\Win64_x64\)
+$genicamRuntime = "$repoRoot\bin\Win64_x64"
+
+# Add gstgencamsrc.dll plugin directory to GStreamer plugin search path
+$env:GST_PLUGIN_PATH = "C:\dlstreamer_dlls;$repoRoot\bin"
+
+# GenICam transport layer — set to your camera vendor's GenTL producer path, for example:
+#   Basler pylon:           C:\Program Files\Basler\pylon\Runtime\x64
+#   Balluff Impact Acquire: C:\Program Files\Balluff\ImpactAcquire\bin\x64
+#   HikRobot MVS:           C:\Program Files (x86)\Common Files\MVS\Runtime\Win64_x64
+$env:GENICAM_GENTL64_PATH = "C:\Program Files\Basler\pylon\Runtime\x64"
+
+# Extend PATH with GenICam runtime DLLs (do NOT overwrite existing PATH)
+$env:PATH = "$genicamRuntime;$env:PATH"
+
+# Always clear the GStreamer plugin registry cache before testing with a new plugin
+Remove-Item "C:\Temp\gst-registry-clean.bin" -ErrorAction SilentlyContinue
+$env:GST_REGISTRY_1_0 = "C:\Temp\gst-registry-clean.bin"
+```
+
 Verify the camera plugin loaded correctly:
 
 ```powershell
@@ -351,6 +389,25 @@ MediaMTX starts automatically when `rtspclientsink` or `whipclientsink` appears 
 ---
 
 ## Troubleshooting
+
+### Camera: `msvcr120.dll` / `msvcp120.dll` not found
+
+The GenICam VC120 DLLs depend on the Visual C++ 2013 Redistributable. Verify whether the required DLLs are present:
+
+```powershell
+"msvcr120: $(Test-Path 'C:\Windows\System32\msvcr120.dll')"
+"msvcp120: $(Test-Path 'C:\Windows\System32\msvcp120.dll')"
+```
+
+If either value is `False`, install the Visual C++ 2013 Redistributable:
+
+```powershell
+$url = "https://download.microsoft.com/download/2/E/6/2E61CFA4-993B-4DD4-91DA-3737CD5CD6E3/vcredist_x64.exe"
+$out = "$env:TEMP\vcredist_x64_2013.exe"
+Invoke-WebRequest -Uri $url -OutFile $out
+Start-Process $out -ArgumentList "/install /quiet /norestart" -Wait
+Write-Host "Done. msvcr120.dll now present: $(Test-Path 'C:\Windows\System32\msvcr120.dll')"
+```
 
 ### Inference on NPU fails with `Failed to construct OpenVINOImageInference` error
 
