@@ -426,6 +426,102 @@
                     }
                 },
                 "auto_start": false
+            },
+            {
+                "name": "yolov11s_gpu_va",
+                "source": "gstreamer",
+                "queue_maxsize": 50,
+                "pipeline": "{auto_source} name=source ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! gvadetect model=/home/pipeline-server/models/public/yolo11s/INT8/yolo11s.xml device=GPU pre-process-backend=va name=detection ! queue ! gvaclassify model=/home/pipeline-server/models/colorcls2/colorcls2.xml model-proc=/home/pipeline-server/models/colorcls2/colorcls2.json device=GPU pre-process-backend=va name=classification ! queue ! gvametaconvert add-empty-results=true name=metaconvert ! gvafpscounter ! appsink name=destination",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "detection-properties": {
+                            "element": {
+                                "name": "detection",
+                                "format": "element-properties"
+                            }
+                        },
+                        "classification-properties": {
+                            "element": {
+                                "name": "classification",
+                                "format": "element-properties"
+                             }
+                        }
+                    }
+                },
+                "auto_start": false
+            },
+            {
+                "name": "yolov11s_igpu_npu_direct_va",
+                "source": "gstreamer",
+                "queue_maxsize": 50,
+                "pipeline": "{auto_source} name=source ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! gvadetect model=/home/pipeline-server/models/public/yolo11s/INT8/yolo11s.xml device=GPU pre-process-backend=va name=detection ! queue ! gvaclassify model=/home/pipeline-server/models/colorcls2/colorcls2.xml model-proc=/home/pipeline-server/models/colorcls2/colorcls2.json device=NPU pre-process-backend=va name=classification ! queue ! gvametaconvert add-empty-results=true name=metaconvert ! gvafpscounter ! appsink name=destination",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "detection-properties": {
+                            "element": {
+                                "name": "detection",
+                                "format": "element-properties"
+                            }
+                        },
+                        "classification-properties": {
+                            "element": {
+                                "name": "classification",
+                                "format": "element-properties"
+                             }
+                        }
+                    }
+                },
+                "auto_start": false
+            },
+            {
+                "name": "yolov11s_igpu_npu_direct_va_bs4",
+                "source": "gstreamer",
+                "queue_maxsize": 50,
+                "pipeline": "{auto_source} name=source ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! gvadetect model=/home/pipeline-server/models/public/yolo11s/INT8/yolo11s.xml device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 name=detection ! queue ! gvaclassify model=/home/pipeline-server/models/colorcls2/colorcls2.xml model-proc=/home/pipeline-server/models/colorcls2/colorcls2.json device=NPU pre-process-backend=va model-instance-id=inf2 batch-size=4 name=classification ! queue ! gvametaconvert add-empty-results=true name=metaconvert ! gvafpscounter ! appsink name=destination",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "detection-properties": {
+                            "element": {
+                                "name": "detection",
+                                "format": "element-properties"
+                            }
+                        },
+                        "classification-properties": {
+                            "element": {
+                                "name": "classification",
+                                "format": "element-properties"
+                             }
+                        }
+                    }
+                },
+                "auto_start": false
+            },
+            {
+                "name": "yolov11s_gpu_va_bs4",
+                "source": "gstreamer",
+                "queue_maxsize": 50,
+                "pipeline": "{auto_source} name=source ! parsebin ! vah264dec ! video/x-raw(memory:VAMemory) ! gvadetect model=/home/pipeline-server/models/public/yolo11s/INT8/yolo11s.xml device=GPU pre-process-backend=va model-instance-id=inf1 batch-size=4 name=detection ! queue ! gvaclassify model=/home/pipeline-server/models/colorcls2/colorcls2.xml model-proc=/home/pipeline-server/models/colorcls2/colorcls2.json device=GPU pre-process-backend=va model-instance-id=inf2 batch-size=4 name=classification ! queue ! gvametaconvert add-empty-results=true name=metaconvert ! gvafpscounter ! appsink name=destination",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "detection-properties": {
+                            "element": {
+                                "name": "detection",
+                                "format": "element-properties"
+                            }
+                        },
+                        "classification-properties": {
+                            "element": {
+                                "name": "classification",
+                                "format": "element-properties"
+                             }
+                        }
+                    }
+                },
+                "auto_start": false
             }
         ]
     }
