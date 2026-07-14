@@ -1,0 +1,95 @@
+{
+   "id": "691bfa6c0a9b332eadf1d28c",
+   "name": "Pallet Defect Detection",
+   "creation_time": "2025-11-18T04:47:40.365000+00:00",
+   "creator_id": "62cbf529-d275-4e91-a96e-1f0bb45e4c68",
+   "pipeline": {
+      "tasks": [
+         {
+            "id": "691bfa6c0a9b332eadf1d28d",
+            "title": "Dataset",
+            "task_type": "dataset"
+         },
+         {
+            "id": "691bfa6c0a9b332eadf1d28f",
+            "title": "Detection",
+            "task_type": "detection",
+            "labels": [
+               {
+                  "id": "691bfa6c0a9b332eadf1d291",
+                  "name": "defect",
+                  "is_anomalous": false,
+                  "color": "#80e9afff",
+                  "hotkey": "",
+                  "is_empty": false,
+                  "group": "Detection labels",
+                  "parent_id": null,
+                  "is_background": false
+               },
+               {
+                  "id": "691bfa6c0a9b332eadf1d292",
+                  "name": "box",
+                  "is_anomalous": false,
+                  "color": "#9b5de5ff",
+                  "hotkey": "",
+                  "is_empty": false,
+                  "group": "Detection labels",
+                  "parent_id": null,
+                  "is_background": false
+               },
+               {
+                  "id": "691bfa6c0a9b332eadf1d293",
+                  "name": "shipping label",
+                  "is_anomalous": false,
+                  "color": "#9d3b1aff",
+                  "hotkey": "",
+                  "is_empty": false,
+                  "group": "Detection labels",
+                  "parent_id": null,
+                  "is_background": false
+               },
+               {
+                  "id": "691bfa6c0a9b332eadf1d297",
+                  "name": "No object",
+                  "is_anomalous": false,
+                  "color": "#000000ff",
+                  "hotkey": "",
+                  "is_empty": true,
+                  "group": "No object",
+                  "parent_id": null,
+                  "is_background": false
+               }
+            ],
+            "label_schema_id": "691bfa6c0a9b332eadf1d299"
+         }
+      ],
+      "connections": [
+         {
+            "from": "691bfa6c0a9b332eadf1d28d",
+            "to": "691bfa6c0a9b332eadf1d28f"
+         }
+      ]
+   },
+   "thumbnail": "/api/v1/organizations/c0ecdada-6dfd-4994-af05-2d6d34332da1/workspaces/19bbd1cd-a0c5-4a9e-bb17-f0c1448f5bf1/projects/691bfa6c0a9b332eadf1d28c/thumbnail",
+   "performance": {
+      "score": 0.8965517241379309,
+      "task_performances": [
+         {
+            "task_id": "691bfa6c0a9b332eadf1d28f",
+            "score": {
+               "value": 0.8965517241379309,
+               "metric_type": "F-Measure"
+            }
+         }
+      ]
+   },
+   "storage_info": {},
+   "datasets": [
+      {
+         "id": "691bfa6c0a9b332eadf1d294",
+         "name": "Dataset",
+         "use_for_training": true,
+         "creation_time": "2025-11-18T04:47:40.364000+00:00"
+      }
+   ]
+}

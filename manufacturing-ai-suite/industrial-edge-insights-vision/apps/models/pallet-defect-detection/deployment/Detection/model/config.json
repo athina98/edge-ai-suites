@@ -1,0 +1,8 @@
+{
+   "model_parameters": {
+      "labels": "defect box shipping_label",
+      "label_ids": "691bfa6c0a9b332eadf1d291 691bfa6c0a9b332eadf1d292 691bfa6c0a9b332eadf1d293"
+   },
+   "model_type": "ssd",
+   "task_type": "detection"
+}
